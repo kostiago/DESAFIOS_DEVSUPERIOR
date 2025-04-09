@@ -1,49 +1,49 @@
-# DESAFIOS DEV SUPERIOR
-Repositório de desafios práticos da Formação Desenvolvedor Moderno. Foco em  backend com Spring Boot com java.
-# 🚀 Desafios Backend com Spring Boot
+# 🧩 Desafio 01 – Componentes e Injeção de Dependência
 
-Seja bem-vindo(a)!
+## 🎯 Objetivo
 
-Este repositório foi criado para **resolver os desafios propostos do curso Formação Desenvolvedor Moderno da DEV SUPERIOR com foco no desenvolvimento backend com Java e Spring Boot**, por meio de desafios práticos e diretos ao ponto!
+Neste desafio, a ideia é criar um sistema simples de pedidos, praticando conceitos fundamentais do Spring Boot, como:
 
-## 🧱 Sobre a branch `main`
+- **Componentes (`@Service`)**
+- **Injeção de dependência**
+- **Separação de responsabilidades**
 
-A branch `main` contém apenas a **estrutura base de um projeto Spring Boot**. Ou seja, é o esqueleto inicial, isso foi feito para que não se precisecomeçar um novo desafio do zero, assim sem perder tempo configurando o projeto.
+A ideia é calcular o **valor total de um pedido**, considerando **desconto** e **frete**, e exibir o resultado no terminal da aplicação.
 
-A branc `main`, está aqui só como ponto de partida.
+---
 
-## 🧩 Como os desafios funcionam?
+## 🛠 O que foi utilizado
 
-Cada desafio vai ter uma **branch própria**, com um nome que indica o que será feito nela. Exemplos:
+- [x] Java 17+
+- [x] Spring Boot
+- [x] Componentes com `@Service`
+- [x] Injeção de dependência com `@Autowired` ou via construtor
+- [ ] Spring Web *(não necessário neste desafio)*
+- [ ] Banco de dados *(não utilizado aqui)*
 
-- `desafio-01: Componentes e injeção de dependência`
+---
 
-Dentro de cada branch você vai encontrar:
+## ✅ Requisitos
 
-- Um enunciado com o que precisa ser feito no desafio
-- Um projeto com a resolução do desafio proposto
-- Em alguns casos, dicas ou links úteis
+O que foi implementado:
 
-## 🛠 Tecnologias que vamos usar
+- [ ] A classe `Order`, que representa um pedido e contém:
+  - Código do pedido (int)
+  - Valor básico (double)
+  - Porcentagem de desconto (double)
+- [ ] A classe `OrderService`, responsável por:
+  - Calcular o valor total com base no valor básico, desconto e frete
+- [ ] A classe `ShippingService`, responsável por:
+  - Calcular o valor do frete com base no valor básico do pedido
 
-Durante os desafios, vamos trabalhar com:
+---
 
-- Java 17+
-- Spring Boot
-- Spring Web (para criar APIs REST)
-- Spring Data JPA (para acessar o banco de dados)
-- Spring Security (quando for necessário autenticar usuários)
-- H2 / PostgreSQL (bancos de dados)
+## 📦 Regras de negócio
 
-## 🎯 Objetivos
+### Cálculo do frete (feito em `ShippingService`):
 
-- Praticar conceitos essenciais do backend com Java
-- Aprimorar arquitetura e boas práticas de desenvolvimento
-- Ganhar familiaridade com recursos modernos do Spring Boot
-- Construir uma base sólida para projetos reais
-
-## 📦 Como começar?
-
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/seu-usuario/desafios-backend-spring.git
+| Valor Básico                | Frete      |
+|----------------------------|------------|
+| Abaixo de R$ 100.00        | R$ 20.00   |
+| De R$ 100.00 até R$ 199.99 | R$ 12.00   |
+| R$ 200.00 ou mais          | Grátis     |
