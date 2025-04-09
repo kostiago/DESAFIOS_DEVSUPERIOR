@@ -42,8 +42,9 @@ Durante os desafios, vamos trabalhar com:
 - Ganhar familiaridade com recursos modernos do Spring Boot
 - Construir uma base sólida para projetos reais
 
-## 📦 Como começar?
+## 📦 Acesso rápido aos desafios?
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/seu-usuario/desafios-backend-spring.git
+1. **Componentes e injeção de dependência:**
+   
+   [👉 Acesse a branch do Desafio 01](https://github.com/kostiago/DESAFIOS_DEVSUPERIOR/tree/desafio-01-componentes-injecao)
+
