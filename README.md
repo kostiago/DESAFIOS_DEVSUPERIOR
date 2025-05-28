@@ -1,50 +1,63 @@
-# DESAFIOS DEV SUPERIOR
-Repositório de desafios práticos da Formação Desenvolvedor Moderno. Foco em  backend com Spring Boot com java.
-# 🚀 Desafios Backend com Spring Boot
+# 🧩 Desafio 02 – Modelo de Domínio e ORM
 
-Seja bem-vindo(a)!
+## 🎯 Objetivo
 
-Este repositório foi criado para **resolver os desafios propostos do curso Formação Desenvolvedor Moderno da DEV SUPERIOR com foco no desenvolvimento backend com Java e Spring Boot**, por meio de desafios práticos e diretos ao ponto!
+Neste desafio, o objetivo é construir o modelo de domínio e implementar o mapeamento objeto-relacional (ORM) utilizando Java e JPA para um sistema de gerenciamento de eventos acadêmicos.
 
-## 🧱 Sobre a branch `main`
+O sistema permite o cadastro de participantes em atividades como palestras, cursos, oficinas práticas, entre outras. Cada atividade pode ser classificada por uma categoria, ter um preço, e ser dividida em diferentes blocos de horários.
 
-A branch `main` contém apenas a **estrutura base de um projeto Spring Boot**. Ou seja, é o esqueleto inicial, isso foi feito para que não se precisecomeçar um novo desafio do zero, assim sem perder tempo configurando o projeto.
+---
 
-A branc `main`, está aqui só como ponto de partida.
+## 🛠 O que foi utilizado
 
-## 🧩 Como os desafios funcionam?
+- [x] Java 17+
+- [x] Spring Boot
+- [x] JPA / Hibernate
+- [x] Anotações: @Entity, @Id, @GeneratedValue, @OneToMany, @ManyToOne, @ManyToMany, @JoinColumn, @JoinTable
+- [x] Tipos modernos de data/hora: Instant
+- [x] Mapeamento bidirecional com coleções (Set)
+- [x] Spring Web
+- [x] Seeding para popular o banco de dados
+- [x] Banco de dados H2
 
-Cada desafio vai ter uma **branch própria**, com um nome que indica o que será feito nela. Exemplos:
+---
 
-- `desafio-01: Componentes e injeção de dependência`
+## ✅ Requisitos
 
-Dentro de cada branch você vai encontrar:
+O que foi implementado:
 
-- Um enunciado com o que precisa ser feito no desafio
-- Um projeto com a resolução do desafio proposto
-- Em alguns casos, dicas ou links úteis
+- [x] A Entidade **`Participante`**, representa um usuario e contém:
+  - id de participante (Long)
+  - nome de participante (String)
+  - email de participante (String/unique)
+  - Participa de várias atividades (relação muitos-para-muitos).
+    
+- [x] A classe **`Atividade`**, contém:
+  - id da atividade (Long)
+  - nome da atividade (String)
+  - descrição da atividade (String)
+  - preço da atividade (Double)
+  - Relaciona-se com várias categorias, participantes e blocos de horário.
+    
+- [x] A classe **`Categoria`**, contém:
+  - id da categoria (Long)
+  - descricao da categoria (String)
+  - Classifica uma ou mais atividades.
 
-## 🛠 Tecnologias que vamos usar
+- [x] A classe **`Bloco`**, contém:
+  - id do bloco (String)
+  - inicio do bloco (Instant)
+  - fim do bloco (Instant)
+  - Representa um período específico em que uma atividade ocorre.
 
-Durante os desafios, vamos trabalhar com:
+---
 
-- Java 17+
-- Spring Boot
-- Spring Web (para criar APIs REST)
-- Spring Data JPA (para acessar o banco de dados)
-- Spring Security (quando for necessário autenticar usuários)
-- H2 / PostgreSQL (bancos de dados)
+## 📦 Regras de negócio
 
-## 🎯 Objetivos
+Cada **atividade** pode ser realizada em um ou mais **blocos de horário**, cada um com início e fim.
 
-- Praticar conceitos essenciais do backend com Java
-- Aprimorar arquitetura e boas práticas de desenvolvimento
-- Ganhar familiaridade com recursos modernos do Spring Boot
-- Construir uma base sólida para projetos reais
+Um **participante** pode se inscrever em várias atividades, e cada atividade pode ter vários participantes.
 
-## 📦 Acesso rápido aos desafios?
+Toda **atividade** pertence a uma única **categoria**.
 
-1. **Componentes e injeção de dependência:**
-   
-   [👉 Acesse a branch do Desafio 01](https://github.com/kostiago/DESAFIOS_DEVSUPERIOR/tree/desafio-01-componentes-injecao)
-
+O modelo evita duplicidades utilizando `Set` nas coleções.
