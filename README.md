@@ -47,4 +47,9 @@ Durante os desafios, vamos trabalhar com:
 1. **Componentes e injeção de dependência:**
    
    [👉 Acesse a branch do Desafio 01](https://github.com/kostiago/DESAFIOS_DEVSUPERIOR/tree/desafio-01-componentes-injecao)
+2. **Modelo de Domínio e ORM:**
+   [👉 Acesse a branch do Desafio 02](https://github.com/kostiago/DESAFIOS_DEVSUPERIOR/tree/desafio-02-modelo-de-dom%C3%ADnio-e-ORM)
+3. **CRUD de clientes:**
+   [👉 Acesse a branch do Desafio 03](https://github.com/kostiago/DESAFIOS_DEVSUPERIOR/tree/desafio-03-CRUD-clientes)
+   
 
