@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-TemplatebaseApplication<templatebase>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.kostiago.templatebase.TemplatebaseApplication",
+      "projectName": "templatebase",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
