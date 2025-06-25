@@ -19,6 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.kostiago.templatebase.record.ClientRecord;
 import com.kostiago.templatebase.service.ClientService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "api/clients")
 public class ClientController {
@@ -27,7 +29,7 @@ public class ClientController {
     private ClientService service;
 
     @PostMapping
-    public ResponseEntity<ClientRecord> create(@RequestBody ClientRecord dto) {
+    public ResponseEntity<ClientRecord> create(@Valid @RequestBody ClientRecord dto) {
         dto = service.create(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.id()).toUri();
         return ResponseEntity.created(uri).body(dto);
@@ -46,7 +48,7 @@ public class ClientController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ClientRecord> update(@PathVariable Long id, @RequestBody ClientRecord dto) {
+    public ResponseEntity<ClientRecord> update(@PathVariable Long id, @Valid @RequestBody ClientRecord dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok(dto);
     }
